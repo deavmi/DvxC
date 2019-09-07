@@ -183,7 +183,8 @@ char process_instruction(struct CPU* cpu)
 /* This is for testing */
 void set_bios(struct CPU* cpu)
 {
-	set32(cpu, 69, 1);
+	set32(cpu, 68, 257);
+	set32(cpu, 72, 9);
 }
 
 void cpu(struct CPU* cpu)
@@ -191,6 +192,7 @@ void cpu(struct CPU* cpu)
 
 	/* This is some testing code that just injects machien code for me */
 	set_bios(cpu);
+	int cycles = 0;
 
 	/* State machine loop */
 	while (cpu->is_active) {
@@ -198,8 +200,9 @@ void cpu(struct CPU* cpu)
 		get_instruction(cpu);
 		printf("Instruction: %u\n", cpu->registerFile.instruction);
 
-		if (cpu->registerFile.ip == 109-4-4-4-4-4-4-4-4) {
-			break;
+		/* TODO: testign code */
+		if (cycles == 20) {
+			//break;
 		}
 
 		/* Process the instruction */
@@ -224,5 +227,7 @@ void cpu(struct CPU* cpu)
 				/* TODO: Implement */
 			}
 		}
+
+		cycles++;
 	}
 }

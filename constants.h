@@ -1,1 +1,1 @@
-#define BIOS_BEGIN 69
+#define BIOS_BEGIN 68
