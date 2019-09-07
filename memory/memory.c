@@ -2,8 +2,6 @@
 
 #include <sys/mman.h>
 
-char is_real_mode(struct CPU*);
-
 char* get_memory(long size)
 {
 	char* memory_region = (char*)mmap(0, size, PROT_READ|PROT_WRITE, MAP_ANONYMOUS+MAP_PRIVATE, 0, 0);
@@ -39,6 +37,31 @@ int get_physical_address(struct CPU* cpu, int virtual_address)
 	return physical_address;
 }
 
+void set32(struct CPU* cpu, unsigned int address, int data)
+{
+	/* Can also map away and to BIOS, need to add meory map */
+	char* base_memory = cpu->memoryModule.memory_physical_region;
+
+	*((int*)(base_memory+address)) = data;
+	printf("Stored data %u at address %u\n", data, address);
+}
+
+void set16(struct CPU* cpu, unsigned int address, short data)
+{
+	/* Can also map away and to BIOS, need to add meory map */
+	char* base_memory = cpu->memoryModule.memory_physical_region;
+
+	*((short*)(base_memory+address)) = data;
+}
+
+void set8(struct CPU* cpu, unsigned int address, char data)
+{
+	/* Can also map away and to BIOS, need to add meory map */
+	char* base_memory = cpu->memoryModule.memory_physical_region;
+
+	*((char*)(base_memory+address)) = data;
+}
+
 int fetch32(struct CPU* cpu, unsigned int address)
 {
 	int memory;
@@ -55,6 +78,10 @@ short fetch16(struct CPU* cpu, unsigned int address)
 {
 	short memory;
 
+	/* Can also map away and to BIOS, need to add meory map */
+	char* base_memory = cpu->memoryModule.memory_physical_region;
+
+	memory = *((short*)(base_memory+address));
 
 	return memory;
 }
@@ -63,6 +90,10 @@ char fetch8(struct CPU* cpu, unsigned int address)
 {
 	char memory;
 
+	/* Can also map away and to BIOS, need to add meory map */
+	char* base_memory = cpu->memoryModule.memory_physical_region;
+
+	memory = *((char*)(base_memory+address));
 
 	return memory;
 }

@@ -1,4 +1,3 @@
-#include "cpu.h"
 #include "cpu.c"
 
 char emulate()

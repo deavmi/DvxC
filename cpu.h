@@ -1,6 +1,6 @@
 /* CPU */
 
-#include "memory.h"
+#include "memory/memory.h"
 
 struct RegisterFile
 {

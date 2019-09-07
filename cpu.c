@@ -1,4 +1,15 @@
-#include "memory.c"
+#include "cpu.h"
+
+/* Returns 1 if we are in real mode, 0 if protected */
+char is_real_mode(struct CPU* cpu)
+{
+	/* TODO: Implement me */
+	char is_real_mode_result = 1;
+	
+	return is_real_mode_result;
+}
+
+#include "memory/memory.c"
 #include "instructions/instructions.c"
 #include "constants.h"
 
@@ -82,7 +93,7 @@ struct CPU* new_cpu()
 	return cpu;
 }
 
-int get_instruction(struct CPU* cpu)
+void get_instruction(struct CPU* cpu)
 {
 	/* The fetched instruction */
 	int instruction;
@@ -94,16 +105,8 @@ int get_instruction(struct CPU* cpu)
 	/* TODO: Add instruction fetch here */
 	instruction = fetch32(cpu, ip);
 
-	return instruction;
-}
-
-/* Returns 1 if we are in real mode, 0 if protected */
-char is_real_mode(struct CPU* cpu)
-{
-	/* TODO: Implement me */
-	char is_real_mode_result = 1;
-	
-	return is_real_mode_result;
+	/* set the instruction */
+	cpu->registerFile.instruction = instruction;
 }
 
 char process_instruction(struct CPU* cpu)
@@ -133,6 +136,7 @@ char process_instruction(struct CPU* cpu)
 	} else if (op_code == 1) {
 		/* This op code is for that very special person */
 		/* TODO: huisdans */
+		huisdans(cpu);
 	} else if (op_code == 2) {
 		/* Move byte immediate to register instruction
 		 *
@@ -176,15 +180,25 @@ char process_instruction(struct CPU* cpu)
 	return increment_ip;
 }
 
+/* This is for testing */
+void set_bios(struct CPU* cpu)
+{
+	set32(cpu, 69, 1);
+}
+
 void cpu(struct CPU* cpu)
 {
+
+	/* This is some testing code that just injects machien code for me */
+	set_bios(cpu);
+
 	/* State machine loop */
 	while (cpu->is_active) {
 		/* Get the current instruction */
 		get_instruction(cpu);
 		printf("Instruction: %u\n", cpu->registerFile.instruction);
 
-		if (cpu->registerFile.ip == 109) {
+		if (cpu->registerFile.ip == 109-4-4-4-4-4-4-4-4) {
 			break;
 		}
 

@@ -1,3 +1,8 @@
+void huisdans(struct CPU* cpu)
+{
+	printf("huisdans woopee!\n");
+}
+
 /* Take the byte and assigns it to the byte-wide register */
 void register_assign_byte(struct CPU* cpu)
 {
