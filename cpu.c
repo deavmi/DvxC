@@ -1,8 +1,11 @@
 #include "memory.c"
+#include "instructions/instructions.c"
+#include "constants.h"
 
 void initialize_memory_module(struct CPU* cpu)
 {
-	initialize_memory(cpu, 2);
+	initialize_memory(cpu, 53613);
+	printf("Emulator's malloc'd space: %u\n", cpu->memoryModule.memory_physical_region);
 }
 
 /* TODO: Pointers cast to unsigned int should be unsigned long) */
@@ -50,6 +53,9 @@ void initialize_registers(struct CPU* cpu)
 		*(dwwrCurrent) = 0;
 	}
 
+	/* Initialize the `ip` register to the BIOS memory */
+	cpu->registerFile.ip = BIOS_BEGIN;
+
 	printf("Registers initialized\n");
 }
 
@@ -76,10 +82,6 @@ struct CPU* new_cpu()
 	return cpu;
 }
 
-
-
-
-
 int get_instruction(struct CPU* cpu)
 {
 	/* The fetched instruction */
@@ -90,10 +92,10 @@ int get_instruction(struct CPU* cpu)
 	printf("Fetching instruction at %u\n", ip);
 
 	/* TODO: Add instruction fetch here */
+	instruction = fetch32(cpu, ip);
 
 	return instruction;
 }
-
 
 /* Returns 1 if we are in real mode, 0 if protected */
 char is_real_mode(struct CPU* cpu)
@@ -109,7 +111,7 @@ char process_instruction(struct CPU* cpu)
 	/* Whether or not we increment ip after processing
 	 * this instruction.
 	 */
-	char increment_ip = 0;
+	char increment_ip = 1;
 	
 	/* Store instruction locally (clearer code) */
 	int instruction = cpu->registerFile.instruction;
@@ -182,9 +184,13 @@ void cpu(struct CPU* cpu)
 		get_instruction(cpu);
 		printf("Instruction: %u\n", cpu->registerFile.instruction);
 
+		if (cpu->registerFile.ip == 109) {
+			break;
+		}
+
 		/* Process the instruction */
 		char must_increment_ip = process_instruction(cpu);
-		printf("msut_increment_ip: %u\n", must_increment_ip);
+		printf("must_increment_ip: %u\n", must_increment_ip);
 
 		/* Check the interrupt register */
 		int interrupt_status = cpu->registerFile.flags; /* TODO: Mask the bit */
@@ -206,6 +212,3 @@ void cpu(struct CPU* cpu)
 		}
 	}
 }
-
-
-#include "instructions/instructions.c"

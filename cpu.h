@@ -42,7 +42,7 @@ struct RegisterFile
 	 */
 
 	/* The current instruction address */
-	int ip;
+	unsigned int ip;
 
 	/* Flags register
 	 *
