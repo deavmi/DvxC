@@ -64,7 +64,7 @@ void interrupt(struct CPU* cpu)
 {
 	/* Determine the interrupt id */
 	char interrupt_id = cpu->registerFile.interrupt_register;
-	printf("Interrupt ID: %u\n", interrupt_id);
+	printf("[Instruction: Int]: Interrupt ID: %u\n", interrupt_id);
 
 	/* We must save the address of the currently
 	 * executing instruction, a.k.a., the `int`
@@ -98,10 +98,11 @@ void halt(struct CPU* cpu)
 {
 	/* Halt the CPU */
 	cpu->is_active = 0;
+	printf("[Instruction: Halt]: CPU is_active set to 0\n");
 }
 
 void nop()
 {
 	/* Nop */
-	printf("Nop\n");
+	printf("[Instruction: Nop]: Doing nothing\n");
 }

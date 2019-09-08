@@ -103,7 +103,7 @@ void get_instruction(struct CPU* cpu)
 	int ip = cpu->registerFile.ip;
 	printf("Fetching instruction at %u\n", ip);
 
-	/* TODO: Add instruction fetch here */
+	/* Fetch the instruction double-word at the `ip` */
 	instruction = fetch32(cpu, ip);
 
 	/* set the instruction */
