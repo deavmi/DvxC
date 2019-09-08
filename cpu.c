@@ -198,19 +198,11 @@ void cpu(struct CPU* cpu)
 	/* TODO (Remove next two lines) This is some testing code that just injects machien code for me */
 	set_bios(cpu);
 
-	/* Amount of cycles done */
-	int cycles = 0;
-
 	/* State machine loop */
 	while (cpu->is_active) {
 		/* Get the current instruction */
 		get_instruction(cpu);
 		printf("Instruction: %u\n", cpu->registerFile.instruction);
-
-		/* TODO: testign code */
-		if (cycles == 20) {
-			//break;
-		}
 
 		/* Process the instruction */
 		char must_increment_ip = process_instruction(cpu);
@@ -229,11 +221,7 @@ void cpu(struct CPU* cpu)
 			if (must_increment_ip) {
 				/* Increment the instruction pointer by 4 bytes */
 				cpu->registerFile.ip += 4;
-			} else {
-				/* TODO: Implement */
 			}
 		}
-
-		cycles++;
 	}
 }
