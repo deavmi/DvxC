@@ -1,3 +1,5 @@
+#include "../registers.c"
+
 void huisdans(struct CPU* cpu)
 {
 	printf("huisdans woopee!\n");
@@ -16,7 +18,7 @@ void register_assign_byte(struct CPU* cpu)
 	char* bwrBase = &(cpu->registerFile.a);
 
 	/* TODO: Error check, raise exception elsewise */
-	if (registerID >= 0 && registerID <= 7) {
+	if (is_byte_register(registerID)) {
 		/* If the registerID is correct, then copy the immediate
 		 * into the register.
 		 */
@@ -84,6 +86,9 @@ void interrupt(struct CPU* cpu)
 
 	/* Get the instruction too so we can set interrupt_regiter to register id */
 	/* TODO: The above */
+	int instruction = cpu->registerFile.instruction;
+
+	/* get the register ID */
 }
 
 void interrupt_jump_set(struct CPU* cpu)
