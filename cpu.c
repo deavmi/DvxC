@@ -12,6 +12,7 @@ char is_real_mode(struct CPU* cpu)
 #include "memory/memory.c"
 #include "instructions/instructions.c"
 #include "constants.h"
+#include "tests/testing.c"
 
 void initialize_memory_module(struct CPU* cpu)
 {
@@ -180,23 +181,13 @@ char process_instruction(struct CPU* cpu)
 	return increment_ip;
 }
 
-/* This is for testing */
-void set_bios(struct CPU* cpu)
-{
-	/* Huisdans instruction */
-	set32(cpu, 68, 257);
-
-	/* Interrupt instruction */
-	set32(cpu, 72, 9);
-
-	/* Halt instruction */
-	set32(cpu, 76, 11);
-}
-
 void cpu(struct CPU* cpu)
 {
-	/* TODO (Remove next two lines) This is some testing code that just injects machien code for me */
-	set_bios(cpu);
+	/* TODO (Remove this) Adds testing machine code into the BIOS 
+	 * start region, no hardware mapping yet so we have to place
+	 * it there.
+	 */
+	testing_setup(cpu);
 
 	/* State machine loop */
 	while (cpu->is_active) {
