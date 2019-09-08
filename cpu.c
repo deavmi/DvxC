@@ -101,12 +101,12 @@ void get_instruction(struct CPU* cpu)
 	
 	/* Address to the current instruction to be fetched */
 	int ip = cpu->registerFile.ip;
-	printf("Fetching instruction at %u\n", ip);
+	printf("[CPU]: Fetching instruction at %u\n", ip);
 
 	/* Fetch the instruction double-word at the `ip` */
 	instruction = fetch32(cpu, get_physical_address(cpu, ip));
 
-	/* set the instruction */
+	/* Set the instruction */
 	cpu->registerFile.instruction = instruction;
 }
 
@@ -181,6 +181,17 @@ char process_instruction(struct CPU* cpu)
 	return increment_ip;
 }
 
+char get_interrupt_status(struct CPU* cpu)
+{
+	/* Get the flags register */
+	int flags = cpu->registerFile.flags;
+
+	/* Mask the interrupt bit out and save its status */
+	char interrupt_bit = ((flags & 2) == 2);
+
+	return interrupt_bit;
+}
+
 void cpu(struct CPU* cpu)
 {
 	/* TODO (Remove this) Adds testing machine code into the BIOS 
@@ -202,7 +213,7 @@ void cpu(struct CPU* cpu)
 		printf("must_increment_ip: %u\n", must_increment_ip);
 
 		/* Check the interrupt register */
-		int interrupt_status = cpu->registerFile.flags; /* TODO: Mask the bit */
+		char interrupt_status = get_interrupt_status(cpu);
 		printf("Interrupt status: %u\n", interrupt_status);
 		if (interrupt_status) {
 			/* Handle the interrupt */

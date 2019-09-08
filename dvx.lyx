@@ -1482,9 +1482,8 @@ The flags register is describe din detail below.
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
+<lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1493,7 +1492,7 @@ The flags register is describe din detail below.
 \begin_inset Text
 
 \begin_layout Plain Layout
-ring
+bit 0
 \end_layout
 
 \end_inset
@@ -1502,7 +1501,27 @@ ring
 \begin_inset Text
 
 \begin_layout Plain Layout
+bit 1
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ring
 \end_layout
 
 \end_inset
@@ -1540,15 +1559,6 @@ interrupt
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 0
 \end_layout
 
@@ -1570,15 +1580,6 @@ interrupt
 
 \begin_layout Plain Layout
 1 = ring 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
