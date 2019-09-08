@@ -47,7 +47,9 @@ void ring_1(struct CPU* cpu)
 
 void jump(struct CPU* cpu, int instruction_address)
 {
+	/* Set the `ip` to the requested address */
 	cpu->registerFile.ip = instruction_address;
+	/* TODO: Add printf here */
 }
 
 void interrupt_return(struct CPU* cpu)
@@ -64,7 +66,7 @@ void interrupt(struct CPU* cpu)
 {
 	/* Determine the interrupt id */
 	char interrupt_id = cpu->registerFile.interrupt_register;
-	printf("[Instruction: Int]: Interrupt ID: %u\n", interrupt_id);
+	printf("[Instruction: int]: Interrupt ID: %u\n", interrupt_id);
 
 	/* We must save the address of the currently
 	 * executing instruction, a.k.a., the `int`
@@ -81,7 +83,7 @@ void interrupt(struct CPU* cpu)
 
 	/* We must transition to a lower ring (TODO: add real and protected mode) */
 	if (!is_real_mode(cpu)) {
-		printf("We are in protected mode, ring-switch before jump\n");
+		printf("[Instruction: int]: We are in protected mode, ring-switch before jump\n");
 		ring_0(cpu);
 	}
 
@@ -98,11 +100,11 @@ void halt(struct CPU* cpu)
 {
 	/* Halt the CPU */
 	cpu->is_active = 0;
-	printf("[Instruction: Halt]: CPU is_active set to 0\n");
+	printf("[Instruction: halt]: CPU is_active set to 0\n");
 }
 
 void nop()
 {
 	/* Nop */
-	printf("[Instruction: Nop]: Doing nothing\n");
+	printf("[Instruction: nop]: Doing nothing\n");
 }
