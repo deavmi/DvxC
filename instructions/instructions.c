@@ -64,6 +64,12 @@ void interrupt_return(struct CPU* cpu)
 
 void interrupt(struct CPU* cpu)
 {
+	/* Set the interrupt bit in the flags register */
+	cpu->registerFile.flags = cpu->registerFile.flags | 2;
+}
+
+void interrupt_jump_set(struct CPU* cpu)
+{
 	/* Determine the interrupt id */
 	char interrupt_id = cpu->registerFile.interrupt_register;
 	printf("[Instruction: int]: Interrupt ID: %u\n", interrupt_id);

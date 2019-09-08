@@ -165,7 +165,7 @@ char process_instruction(struct CPU* cpu)
 		 * Raises an interrupt with the
 		 * given ID in the register provided.
 		 */
-		 /* TODO: Set flags register */
+		 interrupt(cpu);
 	} else if (op_code == 10) {
 		/* Returns from a interrupt
 		 *
@@ -217,7 +217,7 @@ void cpu(struct CPU* cpu)
 		printf("Interrupt status: %u\n", interrupt_status);
 		if (interrupt_status) {
 			/* Handle the interrupt */
-			interrupt(cpu);
+			interrupt_jump_set(cpu);
 		} else {
 			/* If not handling an interrupt */
 
