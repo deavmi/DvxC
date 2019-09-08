@@ -81,6 +81,9 @@ void interrupt(struct CPU* cpu)
 {
 	/* Set the interrupt bit in the flags register */
 	cpu->registerFile.flags = cpu->registerFile.flags | 2;
+
+	/* Get the instruction too so we can set interrupt_regiter to register id */
+	/* TODO: The above */
 }
 
 void interrupt_jump_set(struct CPU* cpu)
