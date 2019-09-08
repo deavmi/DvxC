@@ -54,7 +54,7 @@ void initialize_registers(struct CPU* cpu)
 
 	/* Base address of double-word-wide registers */
 	int* dwwrBase = &(cpu->registerFile.aex);
-	printf("Base address of 4-byte registers: %u\n", (unsigned int)swrBase);
+	printf("Base address of 4-byte registers: %u\n", (unsigned int)dwwrBase);
 
 	/* Initialize the 8 double-word-wide registers */
 	for (unsigned char i = 0; i < 8; i++) {
