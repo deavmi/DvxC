@@ -190,8 +190,10 @@ void set_bios(struct CPU* cpu)
 void cpu(struct CPU* cpu)
 {
 
-	/* This is some testing code that just injects machien code for me */
+	/* TODO (Remove next two lines) This is some testing code that just injects machien code for me */
 	set_bios(cpu);
+
+	/* Amount of cycles done */
 	int cycles = 0;
 
 	/* State machine loop */
@@ -220,7 +222,6 @@ void cpu(struct CPU* cpu)
 
 			/* Check if the `ip` register should be incremented by 4 bytes */
 			if (must_increment_ip) {
-				/* TODO: Implement */
 				/* Increment the instruction pointer by 4 bytes */
 				cpu->registerFile.ip += 4;
 			} else {
