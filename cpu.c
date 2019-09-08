@@ -183,13 +183,18 @@ char process_instruction(struct CPU* cpu)
 /* This is for testing */
 void set_bios(struct CPU* cpu)
 {
+	/* Huisdans instruction */
 	set32(cpu, 68, 257);
+
+	/* Interrupt instruction */
 	set32(cpu, 72, 9);
+
+	/* Halt instruction */
+	set32(cpu, 76, 11);
 }
 
 void cpu(struct CPU* cpu)
 {
-
 	/* TODO (Remove next two lines) This is some testing code that just injects machien code for me */
 	set_bios(cpu);
 
