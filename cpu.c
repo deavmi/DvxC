@@ -3,8 +3,8 @@
 /* Returns 1 if we are in real mode, 0 if protected */
 char is_real_mode(struct CPU* cpu)
 {
-	/* TODO: Implement me */
-	char is_real_mode_result = 1;
+	/* TODO: Add comment here */
+	char is_real_mode_result = (cpu->registerFile.flags & 4) == 0;
 	
 	return is_real_mode_result;
 }

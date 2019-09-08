@@ -7,12 +7,27 @@ void huisdans(struct CPU* cpu)
 void register_assign_byte(struct CPU* cpu)
 {
 	/* Get the register ID */
-	char registerID = *(((char*)&(cpu->registerFile.instruction))+1);
+	unsigned char registerID = *(((char*)&(cpu->registerFile.instruction))+1);
 
 	/* Get the immediate */
 	char immediate = *(((char*)&(cpu->registerFile.instruction))+2);
 
 	/* TODO: Find out struct packing for nicer way to do this */
+	char* bwrBase = &(cpu->registerFile.a);
+
+	/* TODO: Error check, raise exception elsewise */
+	if (registerID >= 0 && registerID <= 7) {
+		/* If the registerID is correct, then copy the immediate
+		 * into the register.
+		 */
+		*(bwrBase+registerID) = immediate;
+	} else {
+		/* If the registerID is incorrect then
+		 * raise an interrupt.
+		 */
+		interrupt(cpu);
+		/* TODO: Add code to set correct interrupt type */
+	}
 }
 
 void register_assign_short(struct CPU* cpu)
