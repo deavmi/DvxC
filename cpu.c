@@ -17,7 +17,7 @@ char is_real_mode(struct CPU* cpu)
 void initialize_memory_module(struct CPU* cpu)
 {
 	initialize_memory(cpu, 53613);
-	printf("Emulator's malloc'd space: %u\n", cpu->memoryModule.memory_physical_region);
+	printf("Emulator's mmap'd space: %u\n", cpu->memoryModule.memory_physical_region);
 }
 
 /* TODO: Pointers cast to unsigned int should be unsigned long) */
@@ -187,7 +187,9 @@ void cpu(struct CPU* cpu)
 	 * start region, no hardware mapping yet so we have to place
 	 * it there.
 	 */
+	printf("Inserting tests...\n");
 	testing_setup(cpu);
+	printf("Inserting tests... compeleted\n");
 
 	/* State machine loop */
 	while (cpu->is_active) {
