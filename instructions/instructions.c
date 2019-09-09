@@ -130,6 +130,14 @@ void interrupt(struct CPU* cpu)
 {
 	/* Set the interrupt bit in the flags register */
 	cpu->registerFile.flags = cpu->registerFile.flags | 2;
+
+	/* Get the registerID */
+	char registerID = get_registerID(cpu, instruction);
+
+	/* Mmmh won;t we have an infite vector looop wait no,as we set it in that case */
+
+	/* get the interrupt id */
+	//char interrupt_id = cpu->registerFile.a
 }
 
 void interrupt_jump_set(struct CPU* cpu)

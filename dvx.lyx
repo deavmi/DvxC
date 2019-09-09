@@ -1694,6 +1694,18 @@ Side-effects
 
 \family typewriter
 nop
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stable
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2629,6 +2641,18 @@ ring will be set back to 1.
 
 \family typewriter
 halt
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stable
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2675,7 +2699,7 @@ Halts the CPU.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ints
 \end_layout
 
 \end_inset
@@ -2684,7 +2708,7 @@ Halts the CPU.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+12
 \end_layout
 
 \end_inset
@@ -2693,7 +2717,7 @@ Halts the CPU.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+register ID
 \end_layout
 
 \end_inset
@@ -2702,7 +2726,7 @@ Halts the CPU.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Sets the vector table base.
 \end_layout
 
 \end_inset
