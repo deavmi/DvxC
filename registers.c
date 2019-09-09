@@ -15,3 +15,10 @@ char is_double_word_register(unsigned char registerID)
 {
 	return (registerID >= 16 && registerID <= 23);
 }
+
+/* Get the registerID of a supporting instruction */
+char get_registerID(int instruction)
+{
+	char registerID = *(((char*)&instruction)+1);
+	return registerID;
+}

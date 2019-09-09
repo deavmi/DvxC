@@ -9,7 +9,7 @@ void huisdans(struct CPU* cpu)
 void register_assign_byte(struct CPU* cpu)
 {
 	/* Get the register ID */
-	unsigned char registerID = *(((char*)&(cpu->registerFile.instruction))+1);
+	char registerID = get_registerID(cpu->registerFile.instruction);
 
 	/* Get the immediate */
 	char immediate = *(((char*)&(cpu->registerFile.instruction))+2);
@@ -35,7 +35,7 @@ void register_assign_byte(struct CPU* cpu)
 void register_assign_short(struct CPU* cpu)
 {
 	/* Get the register ID */
-	char registerID = *(((char*)&(cpu->registerFile.instruction))+1);
+	char registerID = get_registerID(cpu->registerFile.instruction);
 
 	/* Get the immediate */
 	short immediate = *(((short*)&(cpu->registerFile.instruction))+2);
@@ -44,7 +44,7 @@ void register_assign_short(struct CPU* cpu)
 void register_assign_upper(struct CPU* cpu)
 {
 	/* Get the register ID */
-	char registerID = *(((char*)&(cpu->registerFile.instruction))+1);
+	char registerID = get_registerID(cpu->registerFile.instruction);
 
 	/* Get the immediate */
 	char immediate = *((short*)(((char*)&(cpu->registerFile.instruction))+2));
@@ -88,7 +88,15 @@ void interrupt(struct CPU* cpu)
 	/* TODO: The above */
 	int instruction = cpu->registerFile.instruction;
 
-	/* get the register ID */
+	/* Get the register ID */
+	char registerID = get_registerID(instruction);
+
+	/* Make sure the registerID is that of a byte-wide register */
+	if (is_byte_register(registerID)) {
+		/* TODO: Implement me */
+	} else {
+		/* TODO: Implement me */
+	}
 }
 
 void interrupt_jump_set(struct CPU* cpu)
