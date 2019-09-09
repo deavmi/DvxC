@@ -31,7 +31,8 @@ void register_assign_byte(struct CPU* cpu)
 		 * interrupt.
 		 */
 		interrupt(cpu);
-		/* TODO: Add code to set correct interrupt type */
+
+		/* Set the interrupt id */
 		set_interrupt_id(cpu, INTERRUPT_INVALID_REGISTER_ID);
 	}
 }
@@ -54,11 +55,14 @@ void register_assign_short(struct CPU* cpu)
 		 */
 		*(swrBase+registerID) = immediate;
 	} else {
-		/* If the registerID is incorrect then
-		 * raise an interrupt.
+		/* If the registerID is incorrect for
+		 * this instruction then raise an
+		 * interrupt.
 		 */
-		
-//		set_interrupt_s
+		interrupt(cpu);
+
+		/* Set the interrupt id */
+		set_interrupt_id(cpu, INTERRUPT_INVALID_REGISTER_ID);
 	}
 }
 
@@ -77,7 +81,14 @@ void register_assign_upper(struct CPU* cpu)
 	if (is_double_word_register(registerID)) {
 		
 	} else {
+		/* If the registerID is incorrect for
+		 * this instruction then raise an
+		 * interrupt.
+		 */
+		interrupt(cpu);
 		
+		/* Set the interrupt id */
+		set_interrupt_id(cpu, INTERRUPT_INVALID_REGISTER_ID);	
 	}
 }
 
