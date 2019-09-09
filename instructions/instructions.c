@@ -14,7 +14,7 @@ void register_assign_byte(struct CPU* cpu)
 	/* Get the immediate */
 	char immediate = *(((char*)&(cpu->registerFile.instruction))+2);
 
-	/* TODO: Find out struct packing for nicer way to do this */
+	/* Calculate the base of the byte registers */
 	char* bwrBase = &(cpu->registerFile.a);
 
 	/* TODO: Error check, raise exception elsewise */
@@ -39,6 +39,16 @@ void register_assign_short(struct CPU* cpu)
 
 	/* Get the immediate */
 	short immediate = *(((short*)&(cpu->registerFile.instruction))+2);
+
+	/* Calculate the base of the short/word registers */
+	short* swrBase = &(cpu->registerFile.ae);
+
+	/* TODO: Implement me */
+	if (is_word_register(registerID)) {
+		
+	} else {
+		
+	}
 }
 
 void register_assign_upper(struct CPU* cpu)
@@ -48,6 +58,16 @@ void register_assign_upper(struct CPU* cpu)
 
 	/* Get the immediate */
 	char immediate = *((short*)(((char*)&(cpu->registerFile.instruction))+2));
+
+	/* Calculate the base of the double-word registers */
+	int* dwwrBase = &(cpu->registerFile.aex);
+	
+	/* TODO: Implement me */
+	if (is_double_word_register(registerID)) {
+		
+	} else {
+		
+	}
 }
 
 void ring_0(struct CPU* cpu)

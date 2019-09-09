@@ -1790,6 +1790,30 @@ Letterlik husidans
 
 \family typewriter
 movb
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Add note that this
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+and below is load
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+immediate to register
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
