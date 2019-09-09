@@ -136,6 +136,13 @@ void interrupt(struct CPU* cpu)
 
 	/* Mmmh won;t we have an infite vector looop wait no,as we set it in that case */
 
+	/* Make sure the registerID is that of a byte register */
+	if (is_byte_register(registerID)) {
+		
+	} else {
+		/* TODO: Raise exception interrupt here */
+	}
+
 	/* get the interrupt id */
 	//char interrupt_id = cpu->registerFile.a
 }
