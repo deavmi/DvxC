@@ -2911,6 +2911,19 @@ is invalid for the instruction.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If a interrupt is raised due to an exception then generally the format is
+ this.
+ Mmmh.
+ If his occurs we check hex-4 for the address of the offending instruction
+ and the instruciton itself.
+ No need to use anything more.
 \end_layout
 
 \end_body
