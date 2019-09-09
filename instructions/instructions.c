@@ -45,9 +45,16 @@ void register_assign_short(struct CPU* cpu)
 
 	/* TODO: Implement me */
 	if (is_word_register(registerID)) {
-		
+		/* If the registerID is correct, then copy the immediate
+		 * into the register.
+		 */
+		*(swrBase+registerID) = immediate;
 	} else {
+		/* If the registerID is incorrect then
+		 * raise an interrupt.
+		 */
 		
+//		set_interrupt_s
 	}
 }
 
@@ -99,30 +106,21 @@ void interrupt_return(struct CPU* cpu)
 	cpu->registerFile.ip = interrupt_return_address;
 }
 
+/* Sets the flag for an interrupt.
+ *
+ * The `h` register holds the interrupt
+ * id.
+ */
 void interrupt(struct CPU* cpu)
 {
 	/* Set the interrupt bit in the flags register */
 	cpu->registerFile.flags = cpu->registerFile.flags | 2;
-
-	/* Get the instruction too so we can set interrupt_regiter to register id */
-	/* TODO: The above */
-	int instruction = cpu->registerFile.instruction;
-
-	/* Get the register ID */
-	char registerID = get_registerID(instruction);
-
-	/* Make sure the registerID is that of a byte-wide register */
-	if (is_byte_register(registerID)) {
-		/* TODO: Implement me */
-	} else {
-		/* TODO: Implement me */
-	}
 }
 
 void interrupt_jump_set(struct CPU* cpu)
 {
 	/* Determine the interrupt id */
-	char interrupt_id = cpu->registerFile.interrupt_register;
+	char interrupt_id = cpu->registerFile.h;
 	printf("[Instruction: int]: Interrupt ID: %u\n", interrupt_id);
 
 	/* We must save the address of the currently
@@ -137,6 +135,8 @@ void interrupt_jump_set(struct CPU* cpu)
 	 * anywho for protected mode reasons.
 	 */
 	cpu->registerFile.hex = cpu->registerFile.ip+4;
+
+	/* TODO: Also maybe we should store the instruction before this one ey */
 
 	/* We must transition to a lower ring (TODO: add real and protected mode) */
 	if (!is_real_mode(cpu)) {
