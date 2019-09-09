@@ -96,6 +96,9 @@ void ring_0(struct CPU* cpu)
 {
 	/* TODO: Implement ring lowering */
 	printf("Lowered to ring 0\n");
+
+
+	//
 }
 
 void ring_1(struct CPU* cpu)
