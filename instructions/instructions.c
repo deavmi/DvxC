@@ -26,8 +26,9 @@ void register_assign_byte(struct CPU* cpu)
 		 */
 		*(bwrBase+registerID) = immediate;
 	} else {
-		/* If the registerID is incorrect then
-		 * raise an interrupt.
+		/* If the registerID is incorrect for
+		 * this instruction then raise an
+		 * interrupt.
 		 */
 		interrupt(cpu);
 		/* TODO: Add code to set correct interrupt type */

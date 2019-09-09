@@ -1,0 +1,18 @@
+I need to rethink interruot mechanism
+
+
+
+Raise 34?
+movb 34 h
+
+interrupt, sets flag
+
+This then shortly after int instruction, jumps to vect_table+%h=vect_table+34
+
+
+
+What about hardwrae raised interrupts,
+
+we want to store instruction and all, maybe in gex?
+
+So it sets flags, via int instruction, sets h (for type of interrupt), but also then stores in gex,so many combos
