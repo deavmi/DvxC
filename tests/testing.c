@@ -18,7 +18,7 @@ void set_vectors(struct CPU* cpu)
 }
 
 /* Set the vector table base */
-void set_vector_table(struct CPU* cpu)
+void set_vector_table(struct CPU* cpu, int address)
 {
 	
 }

@@ -132,13 +132,13 @@ void interrupt(struct CPU* cpu)
 	cpu->registerFile.flags = cpu->registerFile.flags | 2;
 
 	/* Get the registerID */
-	char registerID = get_registerID(cpu, instruction);
+	char registerID = get_registerID(cpu->registerFile.instruction);
 
 	/* Mmmh won;t we have an infite vector looop wait no,as we set it in that case */
 
 	/* Make sure the registerID is that of a byte register */
 	if (is_byte_register(registerID)) {
-		
+		/* Get the value at the register given and save it as the register */
 	} else {
 		/* TODO: Raise exception interrupt here */
 	}
