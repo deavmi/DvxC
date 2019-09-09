@@ -2,4 +2,5 @@
 
 
 /* Interrupt types */
-#define INTERRUPT_EXCEPTION_REG_ID /* Raised when invalid register ID is used */
+#define INTERRUPT_INVALID_REGISTER_ID 1 /* Raised when invalid register ID is used */
+#define INTERRUPT_X 2 /* TODO: Add me */

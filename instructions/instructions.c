@@ -1,4 +1,6 @@
 #include "../registers.c"
+#include "misc.c"
+#include "../constants.h"
 
 void huisdans(struct CPU* cpu)
 {
@@ -29,6 +31,7 @@ void register_assign_byte(struct CPU* cpu)
 		 */
 		interrupt(cpu);
 		/* TODO: Add code to set correct interrupt type */
+		set_interrupt_id(cpu, INTERRUPT_INVALID_REGISTER_ID);
 	}
 }
 
