@@ -5,22 +5,32 @@
  *
  */
 
-/* Function for returning funciton piinter to copying function dependant on tyoe */
+/* The type of register (TODO: (done) optimized to integer) */
+enum registerType
+{
+	BYTE_REGISTER,
+	SHORT_REGISTER,
+	LONG_REGISTER,
+
+	UNKNOWN_REGISTER_TYPE
+};
+
+/* Function for returning funciton piinter to copying function dependant on type */
 
 /* Byte-to-byte register copy */
-void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_destination)
 {
 	/* TODO: Implement me */
 }
 
 /* short/word-to-short/word register copy */
-void short_to_short_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+void short_to_short_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_destination)
 {
 	/* TODO: Implement me */
 }
 
 /* long-to-long register copy */
-void long_to_long_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+void long_to_long_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_destination)
 {
 	/* TODO: Implement me */
 }
@@ -41,6 +51,30 @@ char is_word_register(unsigned char registerID)
 char is_double_word_register(unsigned char registerID)
 {
 	return (registerID >= 16 && registerID <= 23);
+}
+
+/* /\_/\ */
+enum registerType get_register_type(char registerID)
+{
+	/* TODO: Add comment */
+	if (is_byte_register(registerID)) {
+		/* */
+		return BYTE_REGISTER;
+	}  else if (is_word_register(registerID)) {
+		/* */
+		return SHORT_REGISTER;
+	} else if (is_double_word_register(registerID)) {
+		/* */
+		return LONG_REGISTER;
+	} else {
+		/* */
+		return UNKNOWN_REGISTER_TYPE;
+	}
+}
+
+get_copy_function(enum registerType register_type)
+{
+	/* TODO: Function pointer */
 }
 
 /* Get the registerID of a supporting instruction */

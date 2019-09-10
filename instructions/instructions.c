@@ -35,17 +35,29 @@ void load(struct CPU* cpu)
  */
 void copy(struct CPU* cpu)
 {
-	/* TODO: Add this */
-
 	/* Get both register IDs */
 	char registerID_source = get_registerID(cpu->registerFile.instruction);
 	char registerID_destination = get_registerID_secondary(cpu->registerFile.instruction);
 
 	/* Determine the size of the first register (source) */
+	enum registerType register_source_type = get_register_type(registerID_source);
+
+	/* Determine the size of the second register (destination) */
+	enum registerType register_destination_type = get_register_type(registerID_source);
+
+	/* Ensure both registers (source and destination) are of the same size */
+	if (register_source_type == register_destination_type) {
+		/* TODO: Continue here  */
+		/* TODO: Get the copy function here */
+		get_copy_function(register_source_type);
+	} else {
+		/* TODO: Raise exception interrupt here */
+	}
+
 	/* TODO: Implement this */
 
 	/* Do the copy */
-	/* Implement this */	
+	/* Implement this */
 }
 
 /* Take the byte and assigns it to the byte-wide register */

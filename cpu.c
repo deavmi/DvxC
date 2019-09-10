@@ -227,5 +227,8 @@ void cpu(struct CPU* cpu)
 				cpu->registerFile.ip += 4;
 			}
 		}
+
+		/* Add a new line */
+		printf("\n");
 	}
 }
