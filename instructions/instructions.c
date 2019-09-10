@@ -42,6 +42,7 @@ void copy(struct CPU* cpu)
 	char registerID_destination = get_registerID_secondary(cpu->registerFile.instruction);
 
 	/* Determine the size of the first register (source) */
+	/* TODO:Implement this */
 }
 
 /* Take the byte and assigns it to the byte-wide register */

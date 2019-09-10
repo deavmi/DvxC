@@ -1,6 +1,7 @@
 /* TODO:
  *
  * - Make method for getting register type []
+ * - Register copy methods []
  *
  */
 
