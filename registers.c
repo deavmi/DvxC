@@ -5,6 +5,8 @@
  *
  */
 
+/* Function for returning funciton piinter to copying function dependant on tyoe */
+
 /* Byte-to-byte register copy */
 void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
 {
