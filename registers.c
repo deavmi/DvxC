@@ -1,3 +1,9 @@
+/* TODO:
+ *
+ * - Make method for getting register type []
+ *
+ */
+
 /* Checks whether the registerID is a byte register */
 char is_byte_register(unsigned char registerID)
 {
