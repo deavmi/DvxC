@@ -2,9 +2,46 @@
 #include "misc.c"
 #include "../constants.h"
 
+/* This is an instruction for if she ever says yes,
+ * that is, when I put my big-boy pants on and actually
+ * ask her <3.
+ */
 void huisdans(struct CPU* cpu)
 {
+	/* Bruh oomblik */
 	printf("huisdans woopee!\n");
+}
+
+/* Store the value in a given register into memory
+ * at the given address by the value of the other
+ * given register.
+ */
+void store(struct CPU* cpu)
+{
+	/* TODO: Add this */
+	
+}
+
+/* Load the value from memory at the address given
+ * by the register into the register given.
+ */
+void load(struct CPU* cpu)
+{
+	/* TODO: Add this */
+	
+}
+
+/* Copy value from one register to another register.
+ */
+void copy(struct CPU* cpu)
+{
+	/* TODO: Add this */
+
+	/* Get both register IDs */
+	char registerID_source = get_registerID(cpu->registerFile.instruction);
+	char registerID_destination = get_registerID_secondary(cpu->registerFile.instruction);
+
+	/* Determine the size of the first register (source) */
 }
 
 /* Take the byte and assigns it to the byte-wide register */
@@ -123,7 +160,7 @@ void interrupt_return(struct CPU* cpu)
 
 /* Sets the flag for an interrupt.
  *
- * The `h` register holds the interrupt
+ * The registerID register holds the interrupt
  * id.
  */
 void interrupt(struct CPU* cpu)
@@ -141,6 +178,8 @@ void interrupt(struct CPU* cpu)
 		/* Get the value at the register given and save it as the register */
 	} else {
 		/* TODO: Raise exception interrupt here */
+		/* We must set an internal register that mdifies instruction of interrupt to a register
+		 * with our value, fuck me how nigga */
 	}
 
 	/* get the interrupt id */

@@ -1632,7 +1632,7 @@ This section describes all of the instructions available in the Dvx architetcure
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="21" columns="5">
+<lyxtabular version="3" rows="27" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1752,6 +1752,16 @@ Does nothing (no-operation)
 \begin_inset Text
 
 \begin_layout Plain Layout
+huisdans 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Stable
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1801,7 +1811,7 @@ Letterlik husidans
 \begin_layout Plain Layout
 
 \family typewriter
-movb
+movib
 \begin_inset Note Note
 status collapsed
 
@@ -1872,6 +1882,15 @@ Moves immediate byte into
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Immediate to reg
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1921,7 +1940,7 @@ byte-wide register.
 \begin_layout Plain Layout
 
 \family typewriter
-movw
+moviw
 \end_layout
 
 \end_inset
@@ -1968,6 +1987,15 @@ Moves immediate short/word into
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Immediate to reg
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2017,7 +2045,7 @@ short/word-wide register.
 \begin_layout Plain Layout
 
 \family typewriter
-movu
+moviu
 \end_layout
 
 \end_inset
@@ -2064,6 +2092,15 @@ Moves the immediate short/word into
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Immediate to reg
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2159,6 +2196,8 @@ word-wide register.
 
 \begin_layout Plain Layout
 
+\family typewriter
+store
 \end_layout
 
 \end_inset
@@ -2176,7 +2215,9 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+registerID 
+\family typewriter
+src
 \end_layout
 
 \end_inset
@@ -2185,7 +2226,7 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Stores the value given by the register
 \end_layout
 
 \end_inset
@@ -2206,6 +2247,104 @@ word-wide register.
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+registerID 
+\family typewriter
+address
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+via registerID into the address given
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+by the register via registerID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+load
 \end_layout
 
 \end_inset
@@ -2223,7 +2362,9 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+registerID 
+\family typewriter
+address
 \end_layout
 
 \end_inset
@@ -2232,7 +2373,7 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Loads the value from memory at the
 \end_layout
 
 \end_inset
@@ -2253,6 +2394,110 @@ word-wide register.
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+registerID 
+\family typewriter
+dest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+address given by the value register 
+\family typewriter
+address
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+into the register 
+\family typewriter
+dest
+\family default
+.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+copy
 \end_layout
 
 \end_inset
@@ -2270,6 +2515,130 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
+registerID 
+\family typewriter
+src
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Copies value from register 
+\family typewriter
+src
+\family default
+ to register
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Shortening and widening
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+registerID 
+\family typewriter
+dest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+to register 
+\family typewriter
+dest
+\family default
+.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mmmmh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2308,7 +2677,7 @@ word-wide register.
 \begin_inset Text
 
 \begin_layout Plain Layout
-8
+
 \end_layout
 
 \end_inset
@@ -2699,6 +3068,8 @@ Halts the CPU.
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 ints
 \end_layout
 

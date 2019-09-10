@@ -22,3 +22,10 @@ char get_registerID(int instruction)
 	char registerID = *(((char*)&instruction)+1);
 	return registerID;
 }
+
+/* Get the registerID of a supporting instruction (second register) */
+char get_registerID_secondary(int instruction)
+{
+	char registerID = *(((char*)&instruction)+2);
+	return registerID;
+}
