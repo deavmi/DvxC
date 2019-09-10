@@ -5,6 +5,24 @@
  *
  */
 
+/* Byte-to-byte register copy */
+void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+{
+	/* TODO: Implement me */
+}
+
+/* short/word-to-short/word register copy */
+void short_to_short_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+{
+	/* TODO: Implement me */
+}
+
+/* long-to-long register copy */
+void long_to_long_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_source)
+{
+	/* TODO: Implement me */
+}
+
 /* Checks whether the registerID is a byte register */
 char is_byte_register(unsigned char registerID)
 {
