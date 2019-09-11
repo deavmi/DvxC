@@ -75,6 +75,21 @@ enum registerType get_register_type(char registerID)
 get_copy_function(enum registerType register_type)
 {
 	/* TODO: Function pointer */
+
+	/* Pointer to the `copy` function */
+	void (*copy_function_pointer) (struct CPU*, char, char);
+
+	/* Determine which `copy` function to use based on the register_type */
+	if (register_type == BYTE_REGISTER) {
+		/* Set the copy function pointer for byte registers */
+		copy_function_pointer = byte_to_byte_register_copy;
+	} else if (register_type == SHORT_REGISTER) {
+		/* Set the copy function pointer for short registers */
+		copy_function_pointer = short_to_short_register_copy;
+	} else {
+		/* Set the copy function pointer for long registers */
+		copy_function_pointer = long_to_long_register_copy;
+	}
 }
 
 /* Get the registerID of a supporting instruction */
