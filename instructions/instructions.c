@@ -52,7 +52,6 @@ void copy(struct CPU* cpu)
 
 		/* Call the copy function */
 		copy_function(cpu, registerID_source, registerID_destination);
-		
 	} else {
 		/* TODO: Raise exception interrupt here */
 	}

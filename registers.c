@@ -20,7 +20,21 @@ enum registerType
 /* Byte-to-byte register copy */
 void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_destination)
 {
-	/* TODO: Implement me */
+	/* TODO: Type checking, but be loose if not needed (sure about add and subtract are same) */
+
+	/* The byte-wide registers base */
+	char* bwrBase = &(cpu->registerFile.a);
+
+	/* Source register */
+	char* sourceRegister = bwrBase+registerID_source;
+	
+	/* Destination register */
+	char* destinationRegister = bwrBase+registerID_destination;
+
+	/* Copy the value from the source register into the
+	 * destination register.
+	 */
+	*destinationRegister = *sourceRegister;
 }
 
 /* short/word-to-short/word register copy */
