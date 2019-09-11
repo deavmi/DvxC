@@ -1,0 +1,5 @@
+Basically this is it.
+
+subb and addb are for unsigned and signed 2's complement integrs
+
+Only thing I need to worry about is wdiening

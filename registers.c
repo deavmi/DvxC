@@ -21,6 +21,10 @@ enum registerType
 void byte_to_byte_register_copy(struct CPU* cpu, unsigned char registerID_source, unsigned char registerID_destination)
 {
 	/* TODO: Type checking, but be loose if not needed (sure about add and subtract are same) */
+	/* Poimnters are unsigned, so addition on them will not cause char to be like (even
+	 * though unsigend coreced into signed and sigh extended with an 111 if the upper
+	 * bitwas set, which in this case it isn't but if it were it would not happen.
+	*/
 
 	/* The byte-wide registers base */
 	char* bwrBase = &(cpu->registerFile.a);
