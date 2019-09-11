@@ -47,9 +47,12 @@ void copy(struct CPU* cpu)
 
 	/* Ensure both registers (source and destination) are of the same size */
 	if (register_source_type == register_destination_type) {
-		/* TODO: Continue here  */
-		/* TODO: Get the copy function here */
-		get_copy_function(register_source_type);
+		/*  Get the copy function for the specific register type */
+		void (*copy_function)(struct CPU*, char, char) = get_copy_function(register_source_type);
+
+		/* Call the copy function */
+		//copy_function(cpu, );
+		
 	} else {
 		/* TODO: Raise exception interrupt here */
 	}

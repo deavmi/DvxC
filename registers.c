@@ -53,6 +53,9 @@ char is_double_word_register(unsigned char registerID)
 	return (registerID >= 16 && registerID <= 23);
 }
 
+/* TODO: Add register value fetch function */
+
+
 /* /\_/\ */
 enum registerType get_register_type(char registerID)
 {
@@ -72,7 +75,7 @@ enum registerType get_register_type(char registerID)
 	}
 }
 
-get_copy_function(enum registerType register_type)
+void* get_copy_function (enum registerType register_type)
 {
 	/* TODO: Function pointer */
 
@@ -90,6 +93,8 @@ get_copy_function(enum registerType register_type)
 		/* Set the copy function pointer for long registers */
 		copy_function_pointer = long_to_long_register_copy;
 	}
+
+	return copy_function_pointer;
 }
 
 /* Get the registerID of a supporting instruction */
